@@ -1,0 +1,2 @@
+Bitte Frontend in diesem Ordner programmieren. Das ist notwending für die Abgabe.
+Rider unterstützt bereits out-of-the-box JavaScript und React https://www.jetbrains.com/help/rider/react.html#react_code_completion_component_properties.
