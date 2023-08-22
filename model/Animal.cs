@@ -10,7 +10,6 @@
             Gattung = gattung; // Tiergattung (z.B. Löwe, Tiger)
             Nahrung = nahrung; // Nahrung des Tiers
             GehegeId = gehegeId; // ID des Geheges, in dem das Tier sich befindet
-            GehegeId = gehegeId; // ID des Geheges, in dem das Tier sich befindet
         }
 
         public int Id { get; set; } // Tier-ID

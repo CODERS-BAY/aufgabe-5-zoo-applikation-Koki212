@@ -83,11 +83,11 @@ CREATE TABLE Tickets
 -- creating user
 
 DROP USER 'zooUser'@'Zoo';
-CREATE USER 'mariadb'@'KokiZoo' IDENTIFIED BY 'password';
+CREATE USER 'mariadb'@'Zoo' IDENTIFIED BY 'password';
 
-GRANT INSERT, SELECT ON KokiZoo.* TO 'mariadb'@'KokiZoo';
+GRANT INSERT, SELECT ON Zoo.* TO 'mariadb'@'Zoo';
 
-SHOW GRANTS FOR 'mariadb'@'KokiZoo';
+SHOW GRANTS FOR 'mariadb'@'Zoo';
 
 -- -----------------------------------------------------------------------------------------------------------
 -- inserting values into tables

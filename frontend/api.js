@@ -53,6 +53,13 @@ export const fetchAssignedAnimals = async (tierpflegerId) => {
     return await response.json();
 };
 
+// fetching employees from server
+export const fetchAssignedEmployees = async (tierpflegerId) => {
+    const response = await fetch(`${API_BASE_URL}/Tierpfleger/${tierpflegerId}`);
+    if (!response.ok) throw new Error(`API request failed with status ${response.status}`);
+    return await response.json();
+};
+
 // updating animal data on server
 export const updateAnimal = async (animalId, updatedData) => {
     const response = await fetch(`${API_BASE_URL}/Tierpfleger/tiere/${animalId}/${updatedData.gehegeId}`, {

@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import {Box} from '@mui/system';
 import SearchIcon from '@mui/icons-material/Search';
-import {fetchAssignedAnimals, updateAnimal} from '../api.js';
+import {fetchAssignedAnimals, updateAnimal, fetchAssignedEmployees} from '../api.js';
 
 function Mitarbeiter() {
     const [tierpflegerId, setTierpflegerId] = useState('');
@@ -32,8 +32,8 @@ function Mitarbeiter() {
         debounce(async (id) => {
             setLoading(true);
             try {
-                const data = await fetchAssignedEmployee(id);
-                tierpflegerId(data);
+                const data = await fetchAssignedEmployees(tierpflegerId);
+                setTierpflegerId(data);
             } catch (error) {
                 console.error('Error fetching assigned employee:', error);
             }
@@ -87,15 +87,16 @@ function Mitarbeiter() {
                     onChange={(e) => setTierpflegerId(e.target.value)}
                     onKeyPress={(e) => {
                         if (e.key === 'Enter') {
+                            fetchAssignedEmployee(tierpflegerId);
                             fetchAssignedAnimalsDebounced(tierpflegerId);
                             e.preventDefault();
                         }
                     }}
                     width="50%"
-                    sx={{mr: 2}}
+                    sx={{mr: 1}}
                 />
                 <IconButton
-                    onClick={() => fetchAssignedAnimalsDebounced(tierpflegerId)}
+                    onClick={() => fetchAssignedAnimalsDebounced(tierpflegerId) && fetchAssignedEmployee(tierpflegerId)}
                     color="black"
                 >
                     <SearchIcon/>
